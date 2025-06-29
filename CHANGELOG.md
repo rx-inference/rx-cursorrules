@@ -10,6 +10,8 @@ This document tracks all significant changes made to the project. The project is
 
 | DATE       | ID     | SECTION | VERSION | TYPE | DESCRIPTION                                                                                                  | REMARKS      | STAGE      |
 |------------|--------|---------|---------|------|--------------------------------------------------------------------------------------------------------------|--------------|------------|
+| 2025-06-29 | 0008   | root    | v1.0.2  | mod  | updated README.md.                                                                                           |              | ALPHA      |
+| 2025-06-29 | 0007   | root    | v1.0.1  | mod  | added github repo link as shield badge to page.                                                              |              | ALPHA      |
 | 2025-06-29 | 0006   | root    | v1.0.0  | add  | release as github page.                                                                                      | Release      | ALPHA      |
 | 2025-06-29 | 0005   | root    | v1.0.0  | add  | converted the entire project to html and added quality of life features: design overhaul, copy buttons.      |              | ALPHA      |
 | 2025-06-14 | 0004   | root    | v0.0.1  | doc  | added 'README.md' with basic content.                                                                        |              | FOUNDATION |
