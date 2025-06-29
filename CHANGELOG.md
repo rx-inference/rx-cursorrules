@@ -1,14 +1,18 @@
 # rx-cursorrules - CHANGELOG
 
-notable changes will be documented.
+## INFO
 
-this project adheres to [semantic versioning](https://semver.org/spec/v2.0.0.html).
+This document tracks all significant changes made to the project. The project is oriented along [semantic versioning](https://semver.org/spec/v2.0.0.html) (SemVer), which typically uses version numbers in the format "major.minor.patch" to indicate the type of changes made.
 
-### 2025-06-14
+<br>
 
-## v0.0.1
+## ROOT
 
-- doc: added 'README.md' with basic content. ;;;
-- add: added general and communication rules: 'cursorrules_general.md, cursorrules_communication'. ;;;
-- add: established basic project structure. ;;;
-- add: initial commit. ;;;
+| DATE       | ID     | SECTION | VERSION | TYPE | DESCRIPTION                                                                                                  | REMARKS      | STAGE      |
+|------------|--------|---------|---------|------|--------------------------------------------------------------------------------------------------------------|--------------|------------|
+| 2025-06-29 | 0006   | root    | v1.0.0  | add  | release as github page.                                                                                      | Release      | ALPHA      |
+| 2025-06-29 | 0005   | root    | v1.0.0  | add  | converted the entire project to html and added quality of life features: design overhaul, copy buttons.      |              | ALPHA      |
+| 2025-06-14 | 0004   | root    | v0.0.1  | doc  | added 'README.md' with basic content.                                                                        |              | FOUNDATION |
+| 2025-06-14 | 0003   | root    | v0.0.1  | add  | added general and communication rules: 'cursorrules_general.md, cursorrules_communication'.                  |              | FOUNDATION |
+| 2025-06-14 | 0002   | root    | v0.0.1  | add  | established basic project structure.                                                                         |              | FOUNDATION |
+| 2025-06-14 | 0001   | root    | v0.0.1  | add  | initial commit.                                                                                              |              | FOUNDATION |

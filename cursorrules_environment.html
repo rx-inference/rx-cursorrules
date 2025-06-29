@@ -1,0 +1,197 @@
+<!--
+FILENAME = cursorrules_environment.html
+PURPOSE = a single-page html file displaying environment rules in a styled table with copy-to-clipboard functionality.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rx-cursorrules - Environment Rules</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ===== MAIN GROUP ===== */
+    body {
+      background: #101016;
+      color: #f3f3f3;
+      font-family: 'Rubik', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+    h1 a {
+      text-decoration: none;
+      color: inherit;
+      padding: 0.25rem 0.5rem;
+      transition: background-color 0.2s, color 0.2s;
+    }
+    h1 a:hover {
+      background-color: #FF0040;
+      color: #101016;
+    }
+
+    /* ----- SUB GROUP ----- */
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 90%;
+      max-width: 1100px;
+      background: #101016;
+    }
+    th, td {
+      padding: 1rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+      border: 1px solid white;
+    }
+    th {
+      background: #101016;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      font-size: 1.05rem;
+    }
+    .rule-cell {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .rule-text-span {
+      flex-grow: 1;
+    }
+    .rule-text-span:hover {
+        color: #FF0040;
+        cursor: pointer;
+    }
+    
+    /* ----- SUB GROUP ----- */
+    .copy-btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .copy-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.25rem;
+      display: inline-flex;
+      align-items: center;
+      transition: background 0.15s;
+      position: relative;
+    }
+    .copy-btn:hover {
+      background: #232336;
+    }
+    .copy-icon {
+      width: 1.1em;
+      height: 1.1em;
+      pointer-events: none;
+    }
+    .tooltip {
+      visibility: hidden;
+      background: #232336;
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 0.25em 0.7em;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      font-size: 0.95em;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .copy-btn:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    /* ----- SUB GROUP ----- */
+    @media (max-width: 700px) {
+      table, th, td {
+        font-size: 0.98rem;
+      }
+      th, td {
+        padding: 0.7rem 0.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== MAIN GROUP ===== -->
+  <h1><a href="index.html">BACK</a> | rx-cursorrules - ENVIRONMENT</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>RULE ID</th>
+        <th>DESCRIPTION</th>
+        <th>RULE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- ----- SUB GROUP ----- -->
+      <tr>
+        <td id="rule-id-1">ENVIRONMENT_001</td>
+        <td>assume the working directory is the project root.</td>
+        <td>
+          <div class="rule-cell">
+            <span id="rule-text-1" class="rule-text-span" onclick='copyRule("we are already inside the project root. no subfolder with the project name must be created.")'>
+              we are already inside the project root. no subfolder with the project name must be created.
+            </span>
+            <div class="copy-btn-container">
+              <button class='copy-btn' onmouseover="highlight(['rule-id-1', 'rule-text-1'], '#FF0040')" onmouseout="highlight(['rule-id-1', 'rule-text-1'], 'inherit')" onclick='copyRule("ENVIRONMENT_001 = we are already inside the project root. no subfolder with the project name must be created.")' aria-label='Copy + ID'>
+                <svg class="copy-icon" viewBox="0 0 20 20"><rect x="6" y="6" width="9" height="9" fill="#101016" stroke="white" stroke-width="1"/><rect x="3" y="3" width="9" height="9" fill="#101016" stroke="white" stroke-width="1"/></svg>
+                <span class="tooltip">Copy + ID</span>
+              </button>
+              <button class='copy-btn' onmouseover="highlight(['rule-text-1'], '#FF0040')" onmouseout="highlight(['rule-text-1'], 'inherit')" onclick='copyRule("we are already inside the project root. no subfolder with the project name must be created.")' aria-label='Copy'>
+                <svg class="copy-icon" viewBox="0 0 20 20"><rect x="6" y="6" width="9" height="9" fill="#101016" stroke="white" stroke-width="1"/><rect x="3" y="3" width="9" height="9" fill="#101016" stroke="white" stroke-width="1"/></svg>
+                <span class="tooltip">Copy</span>
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- ===== MAIN GROUP ===== -->
+  <script>
+    // ----- SUB GROUP -----
+    function copyRule(text) {
+      if (!navigator.clipboard) {
+        // fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(textarea);
+      } else {
+        navigator.clipboard.writeText(text);
+      }
+    }
+    // ----- SUB GROUP -----
+    function highlight(elementIds, color) {
+        elementIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.style.color = color;
+        }
+        });
+    }
+  </script>
+</body>
+</html> 
